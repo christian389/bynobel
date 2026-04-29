@@ -1,0 +1,319 @@
+{% paginate metaobjects['shopify--color-pattern'].values by 250 %}
+{% assign ral_colors = metaobjects['shopify--color-pattern'].values %}
+{% assign ral_scope = ral_scope | default: 'ral' %}
+{% assign ral_scope_safe = ral_scope | handleize %}
+
+<div class="ral-picker">
+    <div class="ral-selected">
+        Selected RAL:
+        <span class="ral-selected-preview"></span>
+        <strong class="ral-selected-value">None</strong>
+    </div>
+  <div class="ral-colors-preview">
+
+    {% for color in ral_colors limit:10 %}
+    <label class="ral-option">
+      <input
+        type="radio"
+        name="properties[RAL Color]"
+        value="{{ color.label }}"
+        class="ral-radio">
+
+      <span
+        class="ral-swatch"
+        style="background-color: {{ color.color }};"
+        title="{{ color.label }}">
+      </span>
+    </label>
+    {% endfor %}
+
+  </div>
+
+    <div class="ral-trigger-container">
+        <div class="custom-ral-field">
+            <label for="custom-ral-{{ ral_scope_safe }}">Custom RAL</label>
+            <input
+            type="text"
+            id="custom-ral-{{ ral_scope_safe }}"
+            name="properties[Custom RAL]"
+            class="custom-ral-input"
+            placeholder="Enter RAL code"
+            autocomplete="off">
+        </div>
+        <a href="#" class="ral-open-modal">
+            Browse full RAL palette
+        </a>
+    </div>
+  
+
+</div>
+
+
+<!-- MODAL -->
+<div class="ral-modal">
+
+  <div class="ral-modal-overlay"></div>
+
+  <div class="ral-modal-content">
+
+    <div class="ral-modal-header">
+      <h3>Select RAL Color</h3>
+      <button class="ral-modal-close">&times;</button>
+    </div>
+
+    <div class="ral-modal-colors">
+
+      {% for color in ral_colors %}
+      <label class="ral-option">
+        <input
+          type="radio"
+          name="properties[RAL Color]"
+          value="{{ color.label }}"
+          class="ral-radio">
+
+        <span
+          class="ral-swatch"
+          style="background-color: {{ color.color }};"
+          title="{{ color.label }}">
+        </span>
+      </label>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endpaginate %}
+
+<script>
+$(document).on("click", ".ral-open-modal", function (e) {
+  e.preventDefault();
+  var $wrap = $(this).closest(".ral-picker-wrap");
+  var $modal = $wrap.find(".ral-modal");
+  if (!$modal.length) {
+    return;
+  }
+  if (!$modal.parent().is("body")) {
+    $modal.appendTo("body");
+  }
+  $("body").css("overflow", "hidden");
+  $modal.fadeIn();
+});
+
+$(document).on("click", ".ral-modal-close, .ral-modal-overlay", function () {
+  var $modal = $(this).closest(".ral-modal");
+  $("body").css("overflow", "");
+  $modal.fadeOut();
+});
+
+$(document).on("change", ".ral-radio", function () {
+  var $wrap = $(this).closest(".ral-picker-wrap");
+  var $picker = $(this).closest(".ral-picker");
+  var selectedColor = $(this).val();
+  var swatchColor = $(this).siblings(".ral-swatch").css("background-color");
+  $picker.find(".ral-selected-value").text(selectedColor);
+  $picker.find(".ral-selected-preview").css("background-color", swatchColor);
+  $wrap.find(".custom-ral-input").val("");
+  $wrap.find(".ral-modal").fadeOut();
+  $("body").css("overflow", "");
+});
+
+$(document).on("input", ".custom-ral-input", function () {
+  var $wrap = $(this).closest(".ral-picker-wrap");
+  var $picker = $(this).closest(".ral-picker");
+  var value = $(this).val().trim();
+  if (value !== "") {
+    $wrap.find(".ral-radio").prop("checked", false);
+    $picker.find(".ral-selected-value").text("Custom: " + value);
+    $picker.find(".ral-selected-preview").css("background-color", "transparent");
+  }
+});
+</script>
+
+<style>
+.ral-picker-wrap--hidden {
+  display: none !important;
+}
+.ral-colors{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.ral-option{
+cursor:pointer;
+position:relative;
+}
+
+.ral-swatch{
+width:28px;
+height:28px;
+border-radius:4px;
+border:1px solid #ccc;
+display:inline-block;
+}
+
+.ral-option input{
+display:none;
+}
+
+.ral-option input:checked + .ral-swatch{
+border:3px solid #000;
+}
+
+.ral-load-more{
+margin-top:10px;
+cursor:pointer;
+}
+.ral-more-colors{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.is-hidden{
+  display:none;
+}
+.ral-swatch:hover::after{
+  content: attr(title);
+  position:absolute;
+  background:#000;
+  color:#fff;
+  font-size:12px;
+  padding:4px 6px;
+  border-radius:4px;
+  transform:translateY(-35px);
+}
+.ral-colors-preview{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+margin-bottom:10px;
+}
+
+.ral-option{
+cursor:pointer;
+}
+
+.ral-swatch{
+width:32px;
+height:32px;
+border-radius:4px;
+border:1px solid #ccc;
+display:inline-block;
+}
+
+.ral-option input{
+display:none;
+}
+
+.ral-option input:checked + .ral-swatch{
+border:3px solid #000;
+}
+.ral-open-modal {
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    margin: 10px 0;
+    background: #9E915C;
+    text-decoration: none;
+    color: white;
+}
+/* MODAL */
+
+{% comment %} .ral-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:9999;
+}
+
+.ral-modal-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.ral-modal-content{
+position:relative;
+background:white;
+max-width:800px;
+margin:5% auto;
+padding:20px;
+border-radius:8px;
+max-height:80vh;
+overflow:auto;
+} {% endcomment %}
+.ral-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999999;
+}
+.ral-modal-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:1;
+}
+.ral-modal-close{
+border:none;
+background: #9E915C;
+font-size:28px;
+cursor:pointer;
+line-height:1;
+padding:4px;
+
+}
+
+.ral-modal-close:hover{
+opacity:.6;
+}
+
+.ral-modal-content{
+  position:relative;
+  z-index:2;
+  background:white;
+  max-width:900px;
+  margin:5vh auto;
+  padding:20px;
+  border-radius:10px;
+  max-height:85vh;
+  overflow:auto;
+}
+
+.ral-modal-header{
+display:flex;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.ral-modal-colors{
+display:grid;
+grid-template-columns:repeat(auto-fill,32px);
+gap:8px;
+}
+.ral-selected{
+display:flex;
+align-items:center;
+gap:8px;
+margin-bottom:12px;
+font-size:14px;
+}
+
+.ral-selected-preview{
+width:18px;
+height:18px;
+border-radius:3px;
+border:1px solid #ccc;
+display:inline-block;
+}
+
+</style>

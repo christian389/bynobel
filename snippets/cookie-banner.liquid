@@ -1,0 +1,12 @@
+{%- if settings.show_cookiebanner -%}
+  <article id="cookie" class="popup-a width-440 text-start align-end" data-title="cookies-popup" {% if settings.show_newsletterpopup %}data-popup-after="newsletter-popup"{% endif %} data-popup-delay="000" style="font-size:{{ settings.cookiebanner_font_size }};">
+    {%- if settings.cookiebanner_title != empty -%}
+      <{{ settings.cookiebanner_title_size }} class="text-palette-{{ settings.cookiebanner_title_color_palette }} ff-{{ settings.cookiebanner_title_font }} fw-{{ settings.cookiebanner_title_weight }}">{{ settings.cookiebanner_title }}</{{ settings.cookiebanner_title_size }}>
+    {%- endif -%}
+    {%- if settings.cookiebanner_text -%}{{ settings.cookiebanner_text }}{%- endif -%}
+    <p class="link-btn">
+      <a href="./" class="inline close cookie-decline">{{ 'cookiebanner.decline' | t }}</a>
+      <a href="./" class="close cookie-accept{% if settings.button_style == 'inv' %} inv{% endif %}">{{ 'cookiebanner.accept' | t }}</a>
+    </p>
+  </article>
+{%- endif -%}

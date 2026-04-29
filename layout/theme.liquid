@@ -1,0 +1,118 @@
+<!doctype html>
+{%- assign rtl_languages = 'ae,ar,arc,bcc,bqi,ckb,dv,fa,glk,ha,he,kwh,ks,ku,mzn,nqo,pnb,ps,sd,ug,ur,yi' | split: ',' %}
+<html lang="{{ request.locale.iso_code }}" data-theme="next" dir="{% if rtl_languages contains localization.language.iso_code %}rtl{% else %}ltr{% endif %}" class="no-js btn-hover-up {% if request.design_mode %}theme-editor{% endif %}{% if settings.button_style == 'inv' %} btn-hover-inv{% endif %}{% if settings.button_wide_mobile %} btn-mobile-wide{% endif %}">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>{{ page_title }}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+		{%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+		<meta name="theme-color" content="{{ settings.accent_color }}">
+		<meta name="MobileOptimized" content="320">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover, shrink-to-fit=no">
+		<meta name="msapplication-config" content="{{ 'browserconfig.xml' | asset_url }}">
+		<link rel="canonical" href="{{ canonical_url }}">
+		{% unless settings.primary_font.system? and settings.secondary_font.system? %}<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>{%- endunless -%}
+		<link rel="preload" as="style" href="{{ 'screen.css' | asset_url }}">
+		<link rel="preload" as="style" href="{{ 'screen-settings.css' | asset_url }}">
+		{% if rtl_languages contains localization.language.iso_code %}<link rel="preload" as="style" href="{{ 'rtl.css' | asset_url }}">{% endif %}
+		{% unless settings.primary_font.system? %}<link rel="preload" as="font" href="{{ settings.primary_font | font_url }}" type="font/woff2" crossorigin>{% endunless %}
+		{% unless settings.secondary_font.system? %}<link rel="preload" as="font" href="{{ settings.secondary_font | font_url }}" type="font/woff2" crossorigin>{% endunless %}
+		<link rel="preload" as="font" href="{{ 'icomoon.woff' | asset_url }}" crossorigin>
+		<link media="screen" rel="stylesheet" href="{{ 'screen.css' | asset_url }}" id="core-css">
+		{% if template == 'index.navigation' %}<link media="screen" rel="stylesheet" href="{{ 'theme-nojs-nav.css' | asset_url }}">{% endif %}
+		<noscript><link rel="stylesheet" href="{{ 'async-menu.css' | asset_url }}"></noscript>
+		{%- if template.name == 'collection' or template.name == 'search' -%}
+			<link media="screen" rel="stylesheet" href="{{ 'page-collection.css' | asset_url }}" id="collection-css">
+		{%- endif -%}
+		{%- if template.name == '404' -%}
+			<link media="screen" rel="stylesheet" href="{{ 'page-misc.css' | asset_url }}" id="misc-css">
+		{%- endif -%}
+		{%- if template.name == 'product' -%}
+			<link media="screen" rel="stylesheet" href="{{ 'page-product.css' | asset_url }}" id="product-css">
+		{%- endif -%}
+		<link media="screen" rel="stylesheet" href="{{ 'screen-settings.css' | asset_url }}" id="custom-css">
+		{%- if settings.favicon -%}
+    		<link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+			<link rel="mask-icon" href="safari-pinned-tab.svg" color="#333333">
+			<link rel="apple-touch-icon" href="apple-touch-icon.png">
+    	{%- endif -%}
+		<script>document.documentElement.classList.remove('no-js');</script>
+		{%- if template.name == 'cart' -%}
+		<script>
+			window.stripMainCartTermsCheckbox = function (root) {
+				if (!root || !root.querySelectorAll) return;
+				root.querySelectorAll('p.check, div.check').forEach(function (el) {
+					el.remove();
+				});
+				var form = root.querySelector('form.form-cart');
+				if (form) {
+					form.querySelectorAll('input[type="checkbox"][required]').forEach(function (inp) {
+						var row = inp.closest('p, div');
+						if (row) {
+							row.remove();
+						} else {
+							inp.remove();
+						}
+					});
+				}
+				root.querySelectorAll('input[type="checkbox"][required]').forEach(function (inp) {
+					var id = inp.getAttribute('id') || '';
+					if (id.indexOf('check_') !== 0 || id.indexOf('check_sidecart_terms_') === 0) return;
+					var row = inp.closest('p, div');
+					if (row) {
+						row.remove();
+					} else {
+						inp.remove();
+					}
+				});
+			};
+		</script>
+		{%- endif -%}
+		{% render 'social-meta-tags' %}
+		{{ content_for_header }}
+		{{ settings.custom_script_for_head }}
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	</head>
+	<body class="template-{{ template.name | handle }}">
+		<div id="root">
+			{%- render 'accessibility-menu' %}
+			{%- sections 'header-group' -%}
+			<main id="content"
+				  class="{% if template.name == '404' %}fullheight align-center-static{% endif %}"
+				  style="{% if template.name == 'account' or template.name == 'addresses' %}--glw: 1320px;{% endif %}">
+				{{ content_for_layout }}
+				{%- sections 'footer-group' -%}
+			</main>
+			{%- liquid
+				if template.name == 'product'
+					section 'sticky-add-to-cart'
+				endif
+				unless customer
+					render 'login-drawer'
+					render 'register-drawer'
+				endunless
+				render 'side-cart-container'
+				render 'quickshop-container'
+				render 'pickup-availability-container'
+				if settings.show_newsletterpopup
+					render 'newsletter-popup'
+				endif
+				if settings.show_age_verify_popup
+					render 'age-verify-popup'
+				elsif settings.show_cookiebanner != 'none'
+					render 'cookie-banner'
+				endif
+				if settings.back_to_top_button
+					render 'back-to-top-button'
+				endif
+			-%}
+		</div>
+		{% render 'global-variables' %}
+		{%- if rtl_languages contains localization.language.iso_code -%}<link media="screen" rel="stylesheet" href="{{ 'rtl.css' | asset_url }}">{%- endif -%}
+		{% render 'color-swatches' %}
+		<script defer src="{{ 'scripts.js' | asset_url }}"></script>
+		<script defer src="{{ 'custom.js' | asset_url }}"></script>
+		{{ settings.custom_script_for_body }}
+	</body>
+</html>
