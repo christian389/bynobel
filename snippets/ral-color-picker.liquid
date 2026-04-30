@@ -3,7 +3,7 @@
 {% assign ral_scope = ral_scope | default: 'ral' %}
 {% assign ral_scope_safe = ral_scope | handleize %}
 
-<div class="ral-picker">
+<div class="ral-picker" data-ral-picker="{{ ral_scope_safe }}">
     <div class="ral-selected">
         Selected RAL:
         <span class="ral-selected-preview"></span>
@@ -40,7 +40,7 @@
             placeholder="Enter RAL code"
             autocomplete="off">
         </div>
-        <a href="#" class="ral-open-modal">
+        <a href="#" class="ral-open-modal" data-ral-modal-target="{{ ral_scope_safe }}">
             Browse full RAL palette
         </a>
     </div>
@@ -50,7 +50,7 @@
 
 
 <!-- MODAL -->
-<div class="ral-modal">
+<div class="ral-modal" data-ral-modal="{{ ral_scope_safe }}">
 
   <div class="ral-modal-overlay"></div>
 
@@ -90,8 +90,16 @@
 <script>
 $(document).on("click", ".ral-open-modal", function (e) {
   e.preventDefault();
+  var modalKey = $(this).attr("data-ral-modal-target");
   var $wrap = $(this).closest(".ral-picker-wrap");
-  var $modal = $wrap.find(".ral-modal");
+  if (!$wrap.length) {
+    $wrap = $(this).closest(".ral-picker");
+  }
+
+  var $modal = $wrap.find('.ral-modal[data-ral-modal="' + modalKey + '"]');
+  if (!$modal.length) {
+    $modal = $('.ral-modal[data-ral-modal="' + modalKey + '"]');
+  }
   if (!$modal.length) {
     return;
   }
@@ -109,14 +117,30 @@ $(document).on("click", ".ral-modal-close, .ral-modal-overlay", function () {
 });
 
 $(document).on("change", ".ral-radio", function () {
+  var $modal = $(this).closest(".ral-modal");
+  var modalKey = $modal.attr("data-ral-modal");
+
   var $wrap = $(this).closest(".ral-picker-wrap");
+  if (!$wrap.length && modalKey) {
+    $wrap = $('[data-ral-picker="' + modalKey + '"]').closest(".ral-picker-wrap");
+  }
   var $picker = $(this).closest(".ral-picker");
+  if (!$picker.length && modalKey) {
+    $picker = $('[data-ral-picker="' + modalKey + '"]').first();
+  }
+  if (!$wrap.length && $picker.length) {
+    $wrap = $picker.closest(".ral-picker-wrap");
+  }
   var selectedColor = $(this).val();
   var swatchColor = $(this).siblings(".ral-swatch").css("background-color");
   $picker.find(".ral-selected-value").text(selectedColor);
   $picker.find(".ral-selected-preview").css("background-color", swatchColor);
   $wrap.find(".custom-ral-input").val("");
-  $wrap.find(".ral-modal").fadeOut();
+  if ($modal.length) {
+    $modal.fadeOut();
+  } else {
+    $wrap.find(".ral-modal").fadeOut();
+  }
   $("body").css("overflow", "");
 });
 
