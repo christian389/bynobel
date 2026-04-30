@@ -83,6 +83,12 @@
               {% if line_item.product.has_only_default_variant %} / {% endif %}{{ line_item.selling_plan_allocation.selling_plan.name }}
             {%- endif -%}
           {%- if show_options -%}</p>{% endif -%}
+          {%- for property in line_item.properties -%}
+            {%- if property.first.first == '_' or property.last == blank -%}{%- continue -%}{%- endif -%}
+            <p class="small margin-half">
+              {{ property.first }}:&nbsp;{% if property.last contains '/uploads/' %}<a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>{% else %}{{ property.last }}{% endif %}
+            </p>
+          {%- endfor -%}
           {% if line_item.unit_price_measurement %}
             {%- capture unit_price_base_unit -%}
               {%- if line_item.unit_price_measurement -%}

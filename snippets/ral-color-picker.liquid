@@ -4,6 +4,7 @@
 {% assign ral_scope_safe = ral_scope | handleize %}
 
 <div class="ral-picker" data-ral-picker="{{ ral_scope_safe }}">
+    <input type="hidden" class="ral-color-property" name="properties[RAL Color]" value="">
     <div class="ral-selected">
         Selected RAL:
         <span class="ral-selected-preview"></span>
@@ -15,7 +16,7 @@
     <label class="ral-option">
       <input
         type="radio"
-        name="properties[RAL Color]"
+        name="ral-color-choice-{{ ral_scope_safe }}"
         value="{{ color.label }}"
         class="ral-radio">
 
@@ -67,7 +68,7 @@
       <label class="ral-option">
         <input
           type="radio"
-          name="properties[RAL Color]"
+          name="ral-color-choice-{{ ral_scope_safe }}"
           value="{{ color.label }}"
           class="ral-radio">
 
@@ -135,6 +136,7 @@ $(document).on("change", ".ral-radio", function () {
   var swatchColor = $(this).siblings(".ral-swatch").css("background-color");
   $picker.find(".ral-selected-value").text(selectedColor);
   $picker.find(".ral-selected-preview").css("background-color", swatchColor);
+  $picker.find(".ral-color-property").val(selectedColor);
   $wrap.find(".custom-ral-input").val("");
   if ($modal.length) {
     $modal.fadeOut();
@@ -150,8 +152,11 @@ $(document).on("input", ".custom-ral-input", function () {
   var value = $(this).val().trim();
   if (value !== "") {
     $wrap.find(".ral-radio").prop("checked", false);
-    $picker.find(".ral-selected-value").text("Custom: " + value);
+    $picker.find(".ral-selected-value").text(value);
     $picker.find(".ral-selected-preview").css("background-color", "transparent");
+    $picker.find(".ral-color-property").val(value);
+  } else {
+    $picker.find(".ral-color-property").val("");
   }
 });
 </script>
