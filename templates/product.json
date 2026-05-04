@@ -153,7 +153,7 @@
         "content_gfhc4K"
       ],
       "settings": {
-        "width": "wide",
+        "width": "boxed",
         "images_layout": "thumbnail_grid",
         "images_grid_spacing": 20,
         "custom_product_image_ratio": 70,
