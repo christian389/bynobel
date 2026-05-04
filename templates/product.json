@@ -19,6 +19,13 @@
     "main-product": {
       "type": "main-product",
       "blocks": {
+        "spacer_mfMyNC": {
+          "type": "spacer",
+          "settings": {
+            "height": 60,
+            "height_mobile": 20
+          }
+        },
         "c7259cb9-7235-4028-b6df-3a68077fed80": {
           "type": "title",
           "settings": {
@@ -88,7 +95,7 @@
         "b021209e-de1b-4192-868f-19ef66228ad9": {
           "type": "spacer",
           "settings": {
-            "height": 60,
+            "height": 30,
             "height_mobile": 20
           }
         },
@@ -137,6 +144,7 @@
         }
       },
       "block_order": [
+        "spacer_mfMyNC",
         "c7259cb9-7235-4028-b6df-3a68077fed80",
         "e9431daf-3b99-40f6-89ff-dab164cda2ff",
         "price",
@@ -156,7 +164,7 @@
         "width": "boxed",
         "images_layout": "thumbnail_grid",
         "images_grid_spacing": 20,
-        "custom_product_image_ratio": 50,
+        "custom_product_image_ratio": 60,
         "fill_images": true,
         "fill_not_first": false,
         "images_padding": 0,
