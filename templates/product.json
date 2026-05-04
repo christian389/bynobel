@@ -88,7 +88,7 @@
         "b021209e-de1b-4192-868f-19ef66228ad9": {
           "type": "spacer",
           "settings": {
-            "height": 30,
+            "height": 60,
             "height_mobile": 20
           }
         },
@@ -156,7 +156,7 @@
         "width": "boxed",
         "images_layout": "thumbnail_grid",
         "images_grid_spacing": 20,
-        "custom_product_image_ratio": 70,
+        "custom_product_image_ratio": 50,
         "fill_images": true,
         "fill_not_first": false,
         "images_padding": 0,
