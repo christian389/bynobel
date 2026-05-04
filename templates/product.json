@@ -156,7 +156,7 @@
         "width": "wide",
         "images_layout": "thumbnail_grid",
         "images_grid_spacing": 20,
-        "custom_product_image_ratio": 100,
+        "custom_product_image_ratio": 70,
         "fill_images": true,
         "fill_not_first": false,
         "images_padding": 0,
