@@ -1,1 +1,124 @@
-{"type":"header","name":"t:static_sections.header.name","sections":{"announcement":{"type":"announcement-bar","blocks":{"announcement-1":{"type":"text","settings":{"text":"<strong>14 dages returret<\/strong>"}},"text_KMEFX6":{"type":"text","settings":{"text":"<strong>Højeste kvalitet<\/strong>"}},"text_xP3eEW":{"type":"text","settings":{"text":"<strong>Sikker betaling<\/strong>"}}},"block_order":["announcement-1","text_KMEFX6","text_xP3eEW"],"disabled":true,"settings":{"color_palette":"accent","use_custom_colors":false,"bg_color":"{{ shop.brand.colors.primary[0].background }}","text_color":"{{ shop.brand.colors.primary[0].foreground }}","height":"s","font":"secondary","font_size":"13px","enable_slider_arrows":true,"enable_slider_autoplay":false,"slider_autoplay_seconds":3}},"header":{"type":"header","settings":{"logo_height":130,"layout":"layout_7","width":1600,"enable_language_selector":false,"enable_country_selector":false,"header_shadow":false,"header_height":"69px|55px","top_bar_color":"white","header_color":"white","search_color":"white","menubar_color":"white","show_top_bar":true,"top_bar_height":"55px","top_bar_font_size":"14px","topbar_extra_menu_item":"","topbar_extra_menu_item_link_styling":"inline","enable_usp_slider":true,"enable_usp_slider_arrows":true,"enable_usp_slider_autoplay":true,"usp_slider_autoplay_seconds":3,"extra_image_width":85,"extra_image_link":"","enable_transparent_header":false,"enable_search":true,"searchbar_height":"45px","searchbar_font":"secondary","searchbar_font_size":"14px","enable_sticky_header":true,"blur_opacity":85,"cart_icon":"basket|e962","cart_icon_color":"accent","darkmode_toggle":true,"menu":"main-menu","menubar_height":"45px","menu_layout":"dropdown","show_dropdown_images":false,"show_dropdown_images_autofill":false,"show_dropdown_images_rounded":false,"menu_recently_viewed_products":false,"menubar_alignment":"center","menu_border":false,"menu_border_width":"boxed","menu_border_color":"#e6e8e9","main_menu_items_clickable":true,"menubar_caps":false,"sale_highlight":true,"sale_highlight_item":"Udsalg","menu_font":"primary","menu_font_weight":"400","menu_font_size":11,"menu_letter_spacing":0,"menu_items_limit":5,"menu_subs_font":"primary","enable_menu_subs_font_size":true,"menu_subs_font_size":11,"enable_socials":true,"enable_online_store":true,"logo_height_mobile":45,"mobile_menu_color":"light"}}},"order":["announcement","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:static_sections.header.name",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-1": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>14 dages returret</strong>"
+          }
+        },
+        "text_KMEFX6": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Højeste kvalitet</strong>"
+          }
+        },
+        "text_xP3eEW": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Sikker betaling</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-1",
+        "text_KMEFX6",
+        "text_xP3eEW"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_palette": "accent",
+        "use_custom_colors": false,
+        "bg_color": "{{ shop.brand.colors.primary[0].background }}",
+        "text_color": "{{ shop.brand.colors.primary[0].foreground }}",
+        "height": "s",
+        "font": "secondary",
+        "font_size": "13px",
+        "enable_slider_arrows": true,
+        "enable_slider_autoplay": false,
+        "slider_autoplay_seconds": 3
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_height": 110,
+        "layout": "layout_7",
+        "width": 1600,
+        "enable_language_selector": false,
+        "enable_country_selector": false,
+        "header_shadow": false,
+        "header_height": "69px|55px",
+        "top_bar_color": "white",
+        "header_color": "white",
+        "search_color": "white",
+        "menubar_color": "white",
+        "show_top_bar": true,
+        "top_bar_height": "55px",
+        "top_bar_font_size": "14px",
+        "topbar_extra_menu_item": "",
+        "topbar_extra_menu_item_link_styling": "inline",
+        "enable_usp_slider": true,
+        "enable_usp_slider_arrows": true,
+        "enable_usp_slider_autoplay": true,
+        "usp_slider_autoplay_seconds": 3,
+        "extra_image_width": 85,
+        "extra_image_link": "",
+        "enable_transparent_header": false,
+        "enable_search": true,
+        "searchbar_height": "45px",
+        "searchbar_font": "secondary",
+        "searchbar_font_size": "14px",
+        "enable_sticky_header": true,
+        "blur_opacity": 85,
+        "cart_icon": "basket|e962",
+        "cart_icon_color": "accent",
+        "darkmode_toggle": true,
+        "menu": "main-menu",
+        "menubar_height": "45px",
+        "menu_layout": "dropdown",
+        "show_dropdown_images": false,
+        "show_dropdown_images_autofill": false,
+        "show_dropdown_images_rounded": false,
+        "menu_recently_viewed_products": false,
+        "menubar_alignment": "center",
+        "menu_border": false,
+        "menu_border_width": "boxed",
+        "menu_border_color": "#e6e8e9",
+        "main_menu_items_clickable": true,
+        "menubar_caps": false,
+        "sale_highlight": true,
+        "sale_highlight_item": "Udsalg",
+        "menu_font": "primary",
+        "menu_font_weight": "400",
+        "menu_font_size": 11,
+        "menu_letter_spacing": 0,
+        "menu_items_limit": 5,
+        "menu_subs_font": "primary",
+        "enable_menu_subs_font_size": true,
+        "menu_subs_font_size": 11,
+        "enable_socials": true,
+        "enable_online_store": true,
+        "logo_height_mobile": 45,
+        "mobile_menu_color": "light"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}
