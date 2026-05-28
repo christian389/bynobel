@@ -96,6 +96,7 @@
     "cart_order_notes": true,
     "enable_cart_terms_checkbox": true,
     "cart_terms_text": "<p>Jeg accepterer <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">handelsbetingelserne</a></p>",
+    "enable_search_drawer": false,
     "search_drawer_wide": true,
     "search_drawer_enable_suggestions": false,
     "search_drawer_show_vendor": true,
