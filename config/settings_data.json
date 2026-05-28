@@ -103,12 +103,7 @@
     "search_drawer_popular_collections_title": "Kollektioner",
     "search_drawer_popular_collections": [],
     "search_drawer_popular_products_title": "Populære produkter",
-    "search_drawer_popular_products": [
-      "aria-loungestol",
-      "aria-armstol",
-      "atlas-udendoers-taeppe",
-      "aton-lampe-150-cm-hvid"
-    ],
+    "search_drawer_popular_products": [],
     "show_product_stock_continuous_selling": true,
     "layout_productcard": "quickshop",
     "quickshop_behavior": "static",
