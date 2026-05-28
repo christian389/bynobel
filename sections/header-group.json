@@ -64,7 +64,7 @@
         "header_height": "69px|55px",
         "top_bar_color": "white",
         "header_color": "white",
-        "search_color": "white",
+        "search_color": "black",
         "menubar_color": "white",
         "show_top_bar": true,
         "top_bar_height": "55px",
