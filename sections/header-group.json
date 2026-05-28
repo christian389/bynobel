@@ -55,7 +55,7 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_height": 110,
+        "logo_height": 130,
         "layout": "layout_7",
         "width": 1600,
         "enable_language_selector": false,
@@ -112,7 +112,7 @@
         "menu_subs_font_size": 11,
         "enable_socials": true,
         "enable_online_store": true,
-        "logo_height_mobile": 45,
+        "logo_height_mobile": 50,
         "mobile_menu_color": "light"
       }
     }
