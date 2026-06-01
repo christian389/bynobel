@@ -20,7 +20,7 @@
       },
       "order_summary": {
         "taxes_label": "Moms",
-        "vat_label_html": "Inklusiv {{ Amount }} i moms"
+        "vat_label_html": "Inklusiv {{ amount }} moms"
       }
     },
     "filters": {
