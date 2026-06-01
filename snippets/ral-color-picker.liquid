@@ -6,9 +6,9 @@
 <div class="ral-picker" data-ral-picker="{{ ral_scope_safe }}">
     <input type="hidden" class="ral-color-property" name="properties[RAL Color]" value="">
     <div class="ral-selected">
-        Selected RAL:
+        Valgt RAL:
         <span class="ral-selected-preview"></span>
-        <strong class="ral-selected-value">None</strong>
+        <strong class="ral-selected-value">Ingen</strong>
     </div>
   <div class="ral-colors-preview">
 
@@ -32,7 +32,7 @@
 
     <div class="ral-trigger-container">
         <div class="custom-ral-field">
-            <label for="custom-ral-{{ ral_scope_safe }}">Custom RAL</label>
+            <label for="custom-ral-{{ ral_scope_safe }}">Indtast RAL-kode</label>
             <input
             type="text"
             id="custom-ral-{{ ral_scope_safe }}"
@@ -42,7 +42,7 @@
             autocomplete="off">
         </div>
         <a href="#" class="ral-open-modal" data-ral-modal-target="{{ ral_scope_safe }}">
-            Browse full RAL palette
+            Se alle RAL-farver
         </a>
     </div>
   
@@ -58,7 +58,7 @@
   <div class="ral-modal-content">
 
     <div class="ral-modal-header">
-      <h3>Select RAL Color</h3>
+      <h3>Vælg RAL-farve</h3>
       <button class="ral-modal-close">&times;</button>
     </div>
 
