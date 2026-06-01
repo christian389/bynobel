@@ -19,7 +19,8 @@
         "skip_to_content": "Fortsæt til indhold"
       },
       "order_summary": {
-        "taxes_label": "Moms"
+        "taxes_label": "Moms",
+        "vat_label_html": "Inklusiv {{ Amount }} i moms"
       }
     },
     "filters": {
