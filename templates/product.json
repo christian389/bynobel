@@ -42,6 +42,21 @@
             "height_mobile": 20
           }
         },
+        "variant_selection": {
+          "type": "variant_selection",
+          "settings": {
+            "selection_type": "buttons",
+            "options": true,
+            "button_options": "Color",
+            "dropdown_options": "",
+            "show_variant_label": true,
+            "show_variant_images": true,
+            "show_variant_one_available": false,
+            "show_selected_variant_images": false,
+            "show_unavailable_variants": true,
+            "enable_selling_plans": true
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -65,21 +80,6 @@
         "300dd8ed-65d7-4403-a78c-0f22925cfb25": {
           "type": "pickup",
           "settings": {}
-        },
-        "variant_selection": {
-          "type": "variant_selection",
-          "settings": {
-            "selection_type": "buttons",
-            "options": true,
-            "button_options": "Color",
-            "dropdown_options": "",
-            "show_variant_label": true,
-            "show_variant_images": true,
-            "show_variant_one_available": false,
-            "show_selected_variant_images": false,
-            "show_unavailable_variants": true,
-            "enable_selling_plans": true
-          }
         },
         "90724a70-740a-4cc9-984c-764e1d76a5bd": {
           "type": "codes",
@@ -147,11 +147,11 @@
         "spacer_mfMyNC",
         "c7259cb9-7235-4028-b6df-3a68077fed80",
         "e9431daf-3b99-40f6-89ff-dab164cda2ff",
+        "variant_selection",
         "price",
         "355a7f35-a203-4d78-995d-78fb4a7e6f1c",
         "short_description",
         "300dd8ed-65d7-4403-a78c-0f22925cfb25",
-        "variant_selection",
         "90724a70-740a-4cc9-984c-764e1d76a5bd",
         "inventory",
         "b021209e-de1b-4192-868f-19ef66228ad9",
