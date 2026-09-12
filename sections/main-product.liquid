@@ -147,7 +147,8 @@
             data-media-size="{{ media_images.size }}"
             {% if section.settings.images_layout == 'slider' %}data-spacing="{{ section.settings.images_grid_spacing }}"{% endif %}
             {% if show_selected_variant_images and settings.enable_color_swatches %}data-variant-image="true"{% endif %}
-            data-featured_media_position={{ featured_media_position }}>
+            data-featured_media_position="{{ featured_media_position }}"
+            data-featured-media-id="{{ current_variant.featured_media.id }}">
             {%- if media_images.size == 0 -%}
                 <li>
                     {%- render 'product-labels' -%}
@@ -177,7 +178,7 @@
                             endif
                         endif
                     -%}
-                    <li class="{% if section.settings.images_layout == 'rows' or forloop.index == 1 and product_media_size == 1 %}width-100{% elsif section.settings.images_layout == 'collage' and forloop.index > 2 %}{{ width_class }}{% endif %}{% unless section.settings.images_layout == 'slider' %} has-anchor{% endunless %}" {% if settings.enable_animations and section.settings.images_layout != 'slider' %}data-sal="fade" data-sal-duration="500" data-sal-delay="{{ forloop.index0 | times: 50 }}"{% endif %}>
+<li class="{% if section.settings.images_layout == 'rows' or forloop.index == 1 and product_media_size == 1 %}width-100{% elsif section.settings.images_layout == 'collage' and forloop.index > 2 %}{{ width_class }}{% endif %}{% unless section.settings.images_layout == 'slider' %} has-anchor{% endunless %}" {% if settings.enable_animations and section.settings.images_layout != 'slider' %}data-sal="fade" data-sal-duration="500" data-sal-delay="{{ forloop.index0 | times: 50 }}"{% endif %} data-media-id="{{ media.id }}">
                         {% unless section.settings.images_layout == 'slider' %}
                             <span class="anchor" id="section-main-product-slider-{{ forloop.index }}"></span>
                         {% endunless %}
