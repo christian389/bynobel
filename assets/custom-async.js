@@ -5256,10 +5256,41 @@ var productVariantsAsync = function() {
 								updateSlidersAsync();
 								fancyboxAsync();
 							}
-							if (resultsMarkupForm.querySelector('.l4pr').dataset.featured_media_position && resultsMarkupForm.querySelector('.l4pr').dataset.mediaSize > 1 && productFormSection.querySelector('.l4pr .swiper-outer') ) {
-								var swiper = productFormSection.querySelector('.l4pr .swiper-outer').swiper;
-								swiper.slideTo((resultsMarkupForm.querySelector('.l4pr').dataset.featured_media_position - 1), 500);
-							}
+							var resultGallery = resultsMarkupForm.querySelector('.l4pr'),
+    liveGallery = productFormSection.querySelector('.l4pr'),
+    targetMediaId = resultGallery ? resultGallery.getAttribute('data-featured-media-id') : '',
+    mediaItems = liveGallery ? liveGallery.querySelectorAll('[data-media-id]') : [],
+    targetIndex = -1;
+
+if (resultGallery && liveGallery) {
+    if (targetMediaId) {
+        Array.from(mediaItems).some(function (mediaItem, index) {
+            if (mediaItem.getAttribute('data-media-id') === targetMediaId) {
+                targetIndex = index;
+                return true;
+            }
+            return false;
+        });
+    }
+
+    if (targetIndex < 0 && resultGallery.dataset.featured_media_position) {
+        targetIndex = parseInt(resultGallery.dataset.featured_media_position, 10) - 1;
+    }
+
+    if (targetIndex >= 0) {
+        var swiperOuter = liveGallery.querySelector('.swiper-outer'),
+            swiper = swiperOuter && swiperOuter.swiper;
+
+        if (swiper) {
+            swiper.slideTo(targetIndex, 500);
+        } else if (mediaItems[targetIndex]) {
+            mediaItems[targetIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }
+    }
+}
 							if (resultsMarkupForm.querySelector('.l4pr').dataset.featured_media_position > 0 && resultsMarkupForm.querySelector('.l4pr').classList.contains('static') && !html_tag.classList.contains('l4cl-cart-change')) {
 								document.querySelector('#section-' + resultsMarkupForm.querySelector('.l4pr').id + '-'+resultsMarkupForm.querySelector('.l4pr').dataset.featured_media_position+'').scrollIntoView();
 							}
