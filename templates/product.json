@@ -19,6 +19,18 @@
     "main-product": {
       "type": "main-product",
       "blocks": {
+        "button_6x7GbU": {
+          "type": "button",
+          "settings": {
+            "link_text": "Kontakt os for bestilling",
+            "link_url": "shopify://pages/contact",
+            "button_color_palette": "accent",
+            "button_style": "fill",
+            "wide": true,
+            "show_link": false,
+            "enable_contactform": true
+          }
+        },
         "spacer_mfMyNC": {
           "type": "spacer",
           "settings": {
@@ -101,6 +113,7 @@
         },
         "buy_button": {
           "type": "buy_button",
+          "disabled": true,
           "settings": {
             "button_style": "solid",
             "show_amount_selection": true,
@@ -144,6 +157,7 @@
         }
       },
       "block_order": [
+        "button_6x7GbU",
         "spacer_mfMyNC",
         "c7259cb9-7235-4028-b6df-3a68077fed80",
         "e9431daf-3b99-40f6-89ff-dab164cda2ff",
