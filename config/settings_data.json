@@ -89,6 +89,7 @@
     "button_fontsize_mobile": "18px",
     "button_wide_mobile": true,
     "back_to_top_button": true,
+    "enable_cart_drawer": false,
     "empty_cart_text": "<p>Åh nej! Din kurv er tom..</p>",
     "enable_cart_drawer_undo_remove": true,
     "enable_cart_drawer_undo_remove_delay": true,
