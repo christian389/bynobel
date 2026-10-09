@@ -19,18 +19,6 @@
     "main-product": {
       "type": "main-product",
       "blocks": {
-        "button_6x7GbU": {
-          "type": "button",
-          "settings": {
-            "link_text": "Kontakt os for bestilling",
-            "link_url": "shopify://pages/contact",
-            "button_color_palette": "accent",
-            "button_style": "fill",
-            "wide": true,
-            "show_link": false,
-            "enable_contactform": true
-          }
-        },
         "spacer_mfMyNC": {
           "type": "spacer",
           "settings": {
@@ -111,6 +99,18 @@
             "height_mobile": 20
           }
         },
+        "button_6x7GbU": {
+          "type": "button",
+          "settings": {
+            "link_text": "Kontakt os for bestilling",
+            "link_url": "shopify://pages/contact",
+            "button_color_palette": "accent",
+            "button_style": "fill",
+            "wide": true,
+            "show_link": false,
+            "enable_contactform": false
+          }
+        },
         "buy_button": {
           "type": "buy_button",
           "disabled": true,
@@ -157,7 +157,6 @@
         }
       },
       "block_order": [
-        "button_6x7GbU",
         "spacer_mfMyNC",
         "c7259cb9-7235-4028-b6df-3a68077fed80",
         "e9431daf-3b99-40f6-89ff-dab164cda2ff",
@@ -169,6 +168,7 @@
         "90724a70-740a-4cc9-984c-764e1d76a5bd",
         "inventory",
         "b021209e-de1b-4192-868f-19ef66228ad9",
+        "button_6x7GbU",
         "buy_button",
         "ee5e9f1c-a80a-4244-950f-03806a509775",
         "27aa4d7c-5003-431c-b837-f6b3936b3b75",
