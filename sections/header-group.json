@@ -111,7 +111,7 @@
         "enable_menu_subs_font_size": true,
         "menu_subs_font_size": 11,
         "enable_socials": true,
-        "enable_online_store": false,
+        "enable_online_store": true,
         "logo_height_mobile": 50,
         "mobile_menu_color": "light"
       }
