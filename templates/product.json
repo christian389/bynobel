@@ -108,7 +108,7 @@
             "button_style": "fill",
             "wide": true,
             "show_link": false,
-            "enable_contactform": false
+            "enable_contactform": true
           }
         },
         "buy_button": {
