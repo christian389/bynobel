@@ -3024,7 +3024,7 @@ h1 .icon-check, h2 .icon-check, h3 .icon-check, h4 .icon-check, h5 .icon-check, 
 
 	#root { overflow: hidden; }
 	.shopify-section-header { --maw_logo: 200px; }
-	#header-inner { --height: 60px; --pd: 10px; }
+	#header-inner { --height: 90px; --pd: 10px; }
 	#logo { font-size: var(--main_lead); }
 	#logo img { max-height: calc(var(--height)  - 10px) !important; }
 	#header-inner > .link-btn ~ .search-compact-cont, .link-btn ~ #logo:not(.text-center-mobile) { margin-left: calc(var(--burger_width) + var(--cols_spacing)); }
