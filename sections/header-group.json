@@ -112,7 +112,7 @@
         "menu_subs_font_size": 11,
         "enable_socials": true,
         "enable_online_store": true,
-        "logo_height_mobile": 50,
+        "logo_height_mobile": 70,
         "mobile_menu_color": "light"
       }
     }
