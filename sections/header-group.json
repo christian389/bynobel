@@ -55,7 +55,7 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_height": 160,
+        "logo_height": 200,
         "layout": "layout_7",
         "width": 1600,
         "enable_language_selector": false,
