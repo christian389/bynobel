@@ -517,7 +517,7 @@ ul.text-center, ol.text-center, .text-center ul, .text-center ol { list-style-po
 #logo { flex-shrink: 0; }
 #logo a { display: block; width: 100%; height: 100%; color: inherit; text-decoration: none; }
 #logo img {
-	width: auto !important; max-height: 130px !important; border-radius: 0;
+	width: auto !important; max-height: 200px !important; border-radius: 0;
 	object-fit: contain;
 }
 /*#logo .broken-img { max-width: var(--maw); font-size: var(--main_fz); --maw: 260px; }*/
